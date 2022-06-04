@@ -13,19 +13,18 @@ searchBarInput.addEventListener('submit', searchApi);
             headers: {
                 "X-Auth-Token": "dfa7d3fb-bc85-4ce8-8b1f-6d92e49f4c3e"
             }
-    })
+        })
         // if fetch success then get response
             .then(function (response) {
                 if(response.ok) {
                 response.json().then(function(data) {
                     console.log(data)
-                }) 
+                })} 
                 // else alert error message
                 else(
                     alert('Error' + response.statusText)
                 );    
-            }})
+            })
         };
         // API key
-
 // define search params of response from url
