@@ -26,7 +26,7 @@ searchBarInput.addEventListener('submit', searchApi());
                 // else alert error message
                 else{
                     alert('Error' + response.statusText)
-                };    
+                };    a
             })
         };
 
