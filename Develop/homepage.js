@@ -17,14 +17,14 @@ searchBarInput.addEventListener('submit', searchApi);
         // if fetch success then get response
             .then(function (response) {
                 if(response.ok) {
-                response.json().then function(data) {
-                    console.log(data)}; 
-                }
+                response.json().then (function(data) {
+                    console.log(data)}
+                );
                 // else alert error message
                 else(
                     alert('Error' + response.statusText)
-                );    
-            })
+                )};    
+            });
         };
         // API key
 
