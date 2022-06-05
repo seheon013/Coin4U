@@ -12,11 +12,37 @@
     <!-- CSS stylesheet linked -->
     <link rel="stylesheet" href="./Develop/stylesheet.css">
 </head>
-<body>
-    <button id = 'searchBar'> Here</button>
-    <script src="https://code.jquery.com/jquery-3.5.1.js"
-        integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
- 
-</body>
-<script src="./Develop/homepage.js"></script>
+    <body>
+        <header class="header h1">
+            <h1>
+                🪙<span class="emoji earth" role="img" aria-label="earth rotating"></span>
+                🪙 Coin4U 💰
+                <span class="emoji moon" role="img" aria-label="moon phases"></span>💰
+            </h1>
+        </header>
+        <section class="main">
+            <div class = "field">
+                <label class = "label"> 
+                    Type in a CryptoCurrency of your choosing to begin market cap value tracking: BitCoin, Ethereum, DogeCoin etc... 
+                </label>
+                    <br>
+                    <br>
+                <div class = "control">
+                    <input class = "input" type = "text" placeholder = "e.g BitCoin">
+                        <br>
+                        <br>
+                    <label class = "checkbox">
+                        <input type = "checkbox">
+                            I agree to sharing my location data and to the site's <a href = "#">terms and conditions</a>
+                    </label>
+                </div>
+                    <br>
+                <div id = "submitBtn">
+                    <button class = "button is-link" type="button">Submit</button>
+                </div>
+            </div>
+        </section>
+    </body>
+        <!-- <script src="./Develop/homepage.js"></script>  -->
+        <script src="./Develop/fetch.js"></script>
 </html>

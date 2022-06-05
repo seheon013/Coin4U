@@ -1,9 +1,9 @@
 // querySelect user input from search bar
 var searchBarInput = document.getElementById('searchBar')
     // user input to be stored locally
-
+var submitBtnEl = document.getElementById('submitBtn')
 // addEventListener to search button and submit user input to fetch
-searchBarInput.addEventListener('submit', searchApi());
+submitBtnEl.addEventListener('submit', searchApi());
     // and load function fetch url 
     function searchApi() {
         console.log('d')
@@ -14,8 +14,6 @@ searchBarInput.addEventListener('submit', searchApi());
             headers: {
                 'X-CMC_PRO_API_KEY': 'e186bef8-4358-444a-b7d1-c798f20e09ff',
             },
-        
-            
         })
         // if fetch success then get response
             .then(function (response) {

@@ -1,6 +1,7 @@
 * {
     padding: 0;
     margin: 0;
+    scroll-behavior: smooth;
 }
 
 body {
@@ -11,7 +12,7 @@ body {
 }
 
 .header {
-    background-image: linear-gradient(orange, purple);
+    background-image: linear-gradient(rgb(233, 181, 12), rgb(255, 147, 230), rgb(220, 122, 9));
     justify-content: center;
 
 }
@@ -19,6 +20,9 @@ body {
 .h1 {
     text-align: center;
     padding: 2rem;
+    font-size: larger;
+    font-stretch: ultra-expanded;
+    font-family: monospace;
 }
 
 .main .field {
@@ -31,6 +35,76 @@ body {
     justify-content: center;
     width: 3 rem;
     height: 2 rem;
+}
+
+/* https://codepen.io/GeorgePark/pen/aazBGj */
+
+.emoji {
+    font-size: calc(100px + 4vw);
+    min-width: 1.4em;
+    margin: 0.3em 0.4em;
+    text-align: center;
+}
+
+.earth::after {
+    content: '🌎';
+    --emoji-1: '🌍';
+    --emoji-2: '🌏';
+    animation-name: threeFrames;
+    animation-duration: 10s;
+}
+    
+    @keyframes twoFrames {
+        50% {
+            content: var(--emoji);
+        }
+    }
+
+    @keyframes threeFrames {
+        33.333% {
+            content: var(--emoji-1);
+        }
+
+        66.666% {
+            content: var(--emoji-2);
+        }
+    }
+
+
+
+.moon::after {
+    content: '🌕';
+    animation-name: moon;
+    animation-duration: 10s;
+}
+    @keyframes moon {
+        12.5% {
+            content: '🌖';
+        }
+
+        25% {
+            content: '🌗';
+        }
+
+        37.5% {
+            content: '🌘 ';
+        }
+
+        50% {
+            content: '🌑';
+        }
+
+        62.5% {
+            content: '🌒';
+        }
+
+        75% {
+            content: '🌓';
+        }
+
+        87.5% {
+            content: '🌔';
+        }
 }
 
 /* responsive to one column layout for 800px viewport */
