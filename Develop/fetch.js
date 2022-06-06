@@ -1,3 +1,6 @@
+// apiKey as a const to store private API Key to avoid passing in query string
+const apiKey = 'dfa7d3fb-bc85-4ce8-8b1f-6d92e49f4c3e'
+const coinMarketCapUrl = 'https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest?appid=${apiKey}';
 // Please feel free to use, edit, comment. Thanks --Min
 // https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch
 // omit credentials to avoid exposing key api when fetching
@@ -12,7 +15,7 @@ function searchApi() {
     fetch (coinUrl, {
         method: 'GET',
         headers: {
-            'X-CMC_PRO_API_KEY': 'e186bef8-4358-444a-b7d1-c798f20e09ff',
+            'X-CMC_PRO_API_KEY': 'dfa7d3fb-bc85-4ce8-8b1f-6d92e49f4c3e',
         },
         credentials: 'omit', //user credentials omitted when requesting
     })
