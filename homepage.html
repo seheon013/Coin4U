@@ -7,14 +7,162 @@
     <link href="/Develop/stylesheet.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <title>Coin4U</title>
+    <!-- JQuery linked to html -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <!-- CSS framework Bulma linked -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.min.css" type="stylesheet">
+    <!-- CSS stylesheet linked -->
+    <link rel="stylesheet" href="./Develop/stylesheet.css">
 </head>
-<body>
-    <div class="topnav">
-        <input type="text" placeholder="Search...">
-    </div>
-    
-</body>
-<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-<script src="/Develop/homepage.js"></script>
-</htmlz
+    <body>
+        <header class="header h1">
+            <h1>
+                🪙<span class="emoji earth" role="img" aria-label="earth rotating"></span>
+                🪙 Coin4U 💰
+                <span class="emoji moon" role="img" aria-label="moon phases"></span>💰
+            </h1>
+        </header>
+        <section class="main">
+            <div class = "field">
+                <div class = "type-container">
+                    <div class = "type-writer"> 
+                    Type in a CryptoCurrency of your choosing to begin market cap value tracking: <i class = "i">BitCoin , Ethereum, DogeCoin ...</i> 
+                    </div>
+                </div>
+                    <br>
+                    <br>
+                <div class = "control">
+                    <input class = "input" type = "text" placeholder = "...e.g Terra Classic LUNC">
+                        <br>
+                        <br>
+                    <label class = "checkbox">
+                        <input type = "checkbox">
+                            I agree to sharing my location data and to the site's <a href = "#">terms and conditions</a>
+                    </label>
+                </div>
+                <br>
+                <div id = "submitBtn">
+                    <button class = "button is-link" type="button">Submit</button>
+                </div>
+            </div>
+        </section>
+        <!-- user search results can be displayed immediately after the Search Bar /main section -->
+        <section class ="results">
+            <!-- parent container of Crypto API Results -->
+            <div class="searchResults">
+                <div class="displayResults">
+                    Chosen CryptoCurrency with Accepted Response Parameters Displayed Here!
+                    <!-- Crypto API parameters values will be displayed -->
+                    <div id= "cryptoResult-1">
+                        <h2 id="cryptoName"> Terra Classic LUNC </h2>
+                        <h5 id="cryptoPrice"> Price </h5>
+                        <h5 id="crypto24Hr"> 24 Hours </h5>
+                        <h5 id="crypto7Days"> 7 Days </h5>
+                        <h5 id="crypto30Days"> 30 Days </h5>
+                        <h5 id="cryptoMarketCap"> Market Cap </h5>
+                    </div>
+                </div>
+            </div>
+            <div class="searchResults">
+                <div class="displayResults">
+                    Chosen CryptoCurrency with Accepted Response Parameters Displayed Here!
+                    <!-- Crypto API parameters values will be displayed -->
+                    <div id= "cryptoResult-2">
+                        <h2 id="cryptoName"> Optimism OP </h2>
+                        <h5 id="cryptoPrice"> Price </h5>
+                        <h5 id="crypto24Hr"> 24 Hours </h5>
+                        <h5 id="crypto7Days"> 7 Days </h5>
+                        <h5 id="crypto30Days"> 30 Days </h5>
+                        <h5 id="cryptoMarketCap"> Market Cap </h5>
+                    </div>
+                </div>
+            </div>
+            <div class="searchResults">
+                <div class="displayResults">
+                    Chosen CryptoCurrency with Accepted Response Parameters Displayed Here!
+                    <!-- Crypto API parameters values will be displayed -->
+                    <div id= "cryptoResult-3">
+                        <h2 id="cryptoName"> PancakeSwap CAKE </h2>
+                        <h5 id="cryptoPrice"> Price </h5>
+                        <h5 id="crypto24Hr"> 24 Hours </h5>
+                        <h5 id="crypto7Days"> 7 Days </h5>
+                        <h5 id="crypto30Days"> 30 Days </h5>
+                        <h5 id="cryptoMarketCap"> Market Cap </h5>
+                    </div>
+                </div>
+            </div>
+            <div class="searchResults">
+                <div class="displayResults">
+                    Chosen CryptoCurrency with Accepted Response Parameters Displayed Here!
+                    <!-- Crypto API parameters values will be displayed -->
+                    <div id= "cryptoResult-4">
+                        <h2 id="cryptoName"> STEPN GMT </h2>
+                        <h5 id="cryptoPrice"> Price </h5>
+                        <h5 id="crypto24Hr"> 24 Hours </h5>
+                        <h5 id="crypto7Days"> 7 Days </h5>
+                        <h5 id="crypto30Days"> 30 Days </h5>
+                        <h5 id="cryptoMarketCap"> Market Cap </h5>
+                    </div>
+                </div>
+            </div>
+            <div class="searchResults">
+                <div class="displayResults">
+                    Chosen CryptoCurrency with Accepted Response Parameters Displayed Here!
+                    <!-- Crypto API parameters values will be displayed -->
+                    <div id= "cryptoResult-5">
+                        <h2 id="cryptoName"> Ren REN </h2>
+                        <h5 id="cryptoPrice"> Price </h5>
+                        <h5 id="crypto24Hr"> 24 Hours </h5>
+                        <h5 id="crypto7Days"> 7 Days </h5>
+                        <h5 id="crypto30Days"> 30 Days </h5>
+                        <h5 id="cryptoMarketCap"> Market Cap </h5>
+                    </div>
+                </div>
+            </div>
+            <div class="searchResults">
+                <div class="displayResults">
+                    Chosen CryptoCurrency with Accepted Response Parameters Displayed Here!
+                    <!-- Crypto API parameters values will be displayed -->
+                    <div id= "cryptoResult-6">
+                        <h2 id="cryptoName"> ApeCoin APE </h2>
+                        <h5 id="cryptoPrice"> Price </h5>
+                        <h5 id="crypto24Hr"> 24 Hours </h5>
+                        <h5 id="crypto7Days"> 7 Days </h5>
+                        <h5 id="crypto30Days"> 30 Days </h5>
+                        <h5 id="cryptoMarketCap"> Market Cap </h5>
+                    </div>
+                </div>
+            </div>
+            <div class="searchResults">
+                <div class="displayResults">
+                    Chosen CryptoCurrency with Accepted Response Parameters Displayed Here!
+                    <!-- Crypto API parameters values will be displayed -->
+                    <div id= "cryptoResult-7">
+                        <h2 id="cryptoName"> Ultra UOS </h2>
+                        <h5 id="cryptoPrice"> Price </h5>
+                        <h5 id="crypto24Hr"> 24 Hours </h5>
+                        <h5 id="crypto7Days"> 7 Days </h5>
+                        <h5 id="crypto30Days"> 30 Days </h5>
+                        <h5 id="cryptoMarketCap"> Market Cap </h5>
+                    </div>
+                </div>
+            </div>
+            <div class="searchResults">
+                <div class="displayResults">
+                    Chosen CryptoCurrency with Accepted Response Parameters Displayed Here!
+                    <!-- Crypto API parameters values will be displayed -->
+                    <div id= "cryptoResult-8">
+                        <h2 id="cryptoName"> Lisk LSK </h2>
+                        <h5 id="cryptoPrice"> Price </h5>
+                        <h5 id="crypto24Hr"> 24 Hours </h5>
+                        <h5 id="crypto7Days"> 7 Days </h5>
+                        <h5 id="crypto30Days"> 30 Days </h5>
+                        <h5 id="cryptoMarketCap"> Market Cap </h5>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </body>
+        <!-- <script src="./Develop/homepage.js"></script>  -->
+        <!-- <script src="./Develop/fetch.js"></script> -->
+</html>
