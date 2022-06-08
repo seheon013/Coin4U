@@ -15,7 +15,7 @@ function searchApi() {
     fetch (coinUrl, {
         method: 'GET',
         headers: {
-            'X-CMC_PRO_API_KEY': 'dfa7d3fb-bc85-4ce8-8b1f-6d92e49f4c3e',
+            'X-CMC_PRO_API_KEY': apiKey,
         },
         credentials: 'omit', //user credentials omitted when requesting
     })
