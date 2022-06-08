@@ -9,6 +9,8 @@ var submitBtnEl = document.getElementById('submitBtn')
 
 submitBtnEl.addEventListener('submit', searchApi());
 function searchApi() {
+    // hide searchResults divs prior to displaying user search results
+    $('.searchResults').css("display", "none");
     console.log('d')
     var coinUrl = 'https://cors-anywhere.herokuapp.com/https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest';
     

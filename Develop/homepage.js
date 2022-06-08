@@ -12,7 +12,7 @@ const coinArray = {'Bitcoin': 0, 'Ethereum':1, 'Tether':2, 'USD Coin':3, 'BNB':4
 // addEventListener to search button and submit user input to fetch
 submitBtnEl.addEventListener('click', searchApi('Ethereum')); //Ethereum is an example.
     // and load function fetch url 
-    function searchApi() {
+    function searchApi() { 
         // hide searchResults divs prior to displaying user search results
         $('.searchResults').css("display", "none");
         // coinbase api

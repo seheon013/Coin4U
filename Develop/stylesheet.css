@@ -69,6 +69,20 @@ body {
     height: 2 rem;
 }
 
+.checkbox:hover {
+    transform: scale(1.2);
+    transition: 2s;
+}
+
+#submitBtn {
+    padding: 2rem;
+}   
+
+#submitBtn:hover {
+    transform: scale(2);
+    transition: 2s;
+}
+
 /* https://www.sitepoint.com/css-typewriter-effect/ */
 /* first make text hidden until reveal by type out animation */
 .type-writer {
@@ -100,6 +114,7 @@ body {
     margin: 0.3em 0.4em;
     text-align: center;
 }
+
 
 .earth::after {
     content: '🌎';
