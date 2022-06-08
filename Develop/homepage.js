@@ -3,7 +3,7 @@ var searchBarInput = document.getElementById('searchBar')
     // user input to be stored locally
 var submitBtnEl = document.getElementById('submitBtn')
 // addEventListener to search button and submit user input to fetch
-submitBtnEl.addEventListener('submit', searchApi());
+submitBtnEl.addEventListener('click', searchApi());
     // and load function fetch url 
     function searchApi() {
         console.log('d')
@@ -45,9 +45,9 @@ submitBtnEl.addEventListener('submit', searchApi());
 
                 };
         })
+        // location.href='userpage.html';
         
         };
-
-
+        
         // API key
 // define search params of response from url
