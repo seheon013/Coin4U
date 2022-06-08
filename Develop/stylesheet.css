@@ -168,3 +168,8 @@ body {
         flex: 100%;
     }
 }
+
+.control {
+    position: relative;
+    display: inline-block;
+}
