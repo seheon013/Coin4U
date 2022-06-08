@@ -1,4 +1,4 @@
-// storing keyAPIs as const
+// storing keyAPIs as const for CoinMarketCap
 const apiKey1 = 'dfa7d3fb-bc85-4ce8-8b1f-6d92e49f4c3e'
 const apiKey2 = 'e186bef8-4358-444a-b7d1-c798f20e09ff'
 
