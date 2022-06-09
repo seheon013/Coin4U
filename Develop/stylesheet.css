@@ -32,6 +32,12 @@ body {
     font-family: monospace;
 }
 
+/* gif animation img */
+#git-embed {
+    align-items: center;
+    justify-content: center;
+}
+
 .main {
     background-image: repeating-radial-gradient(rgb(255, 147, 230), rgb(220, 122, 9));
 }
@@ -63,10 +69,10 @@ body {
     padding: 2rem;
 }
 
-.input .checkbox {
+.input {
     justify-content: center;
-    width: 3 rem;
-    height: 2 rem;
+    height: 50px;
+    width: 50%;
 }
 
 .checkbox:hover {
