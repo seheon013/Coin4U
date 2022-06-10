@@ -3,6 +3,8 @@ const apiKey1 = 'dfa7d3fb-bc85-4ce8-8b1f-6d92e49f4c3e'
 const apiKey2 = 'e186bef8-4358-444a-b7d1-c798f20e09ff'
 
 
+var cryptoselected = ''
+var userselectCryptos = [];
 // querySelect user input from search bar
 var searchBarInput = document.getElementById('searchBar')
     // user input to be stored locally
@@ -12,7 +14,41 @@ var cryptoResult = document.getElementById('cryptoResult-1');
 
 const coinArray = {'Bitcoin': 0, 'Ethereum':1, 'Tether':2, 'USD Coin':3, 'BNB':4, 'Cardano':5, 'XRP':6, 'Binance USD':7, 'Solana':7, 'Dogecoin':9, 'Polkadot':10}
 // addEventListener to search button and submit user input to fetch
-submitBtnEl.addEventListener('click', searchApi('Ethereum')); //Ethereum is an example.
+$(document).ready(function(){
+
+
+    // Initialize select2
+    $("#selUser").select2();
+    
+    // Read selected option
+    $('#but_read').click(function(){
+    var cryptoselected = $('#selUser option:selected').text();
+    userselectCryptos.push(cryptoselected)
+    var coinUrl = 'https://cors-anywhere.herokuapp.com/https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest';
+    fetch (coinUrl, {
+        method: 'GET',
+        headers: {
+            'X-CMC_PRO_API_KEY': apiKey1,
+        },
+    })
+    // if fetch success then get response
+        .then(function (response) {
+            if(response.ok) {
+            response.json().then(function(data){
+                getParam(data, cryptoselected)
+            })
+        }
+            // else alert error message
+            else{
+                alert('Error' + response.statusText)
+            };
+        })
+        console.log(cryptoResult);
+    
+    });
+    });
+
+submitBtnEl.addEventListener('click', searchApi()); 
     // and load function fetch url 
     function searchApi() { 
         // hide searchResults divs prior to displaying user search results
@@ -33,6 +69,7 @@ submitBtnEl.addEventListener('click', searchApi('Ethereum')); //Ethereum is an e
                     console.log(data);  //function getting info of given coin
                     for (var i = 0; i <(data.data).length; i++) {
                         // console.log(cryptoResult);
+                        
                         cryptoResult.append(data.data[i]);
                     }
                 })
@@ -89,7 +126,7 @@ var getParam = function (data, symbol){
     percent_change_7d = roundup(percent_change_7d)
     volume24h = data.data[num].quote.USD.volume_24h
     volume24h = roundup(volume24h)
-
+    
     console.log('Current price: $'+ price)
     console.log('Current market cap: $' + marketcap)
     console.log('1 Hour price change: '+percent_change_1h+'%')
@@ -98,22 +135,7 @@ var getParam = function (data, symbol){
     console.log('24 Hour Volume: $'+volume24h)
 }
 
-var roundup= function (num){
+var roundup = function (num){
     //round up to decimal 2 point
     return Math.round(num*100)/100
 }
-   
-$(document).ready(function(){
- 
-// Initialize select2
-$("#selUser").select2();
-
-// Read selected option
-$('#but_read').click(function(){
-var username = $('#selUser option:selected').text();
-var userid = $('#selUser').val();
-
-$('#result').html("id : " + userid + ", name : " + username);
-
-});
-});
