@@ -34,9 +34,9 @@ submitBtnEl.addEventListener('click', searchApi); //Ethereum is an example.
                 if(response.ok) {
                 response.json().then(function(data){
                     console.log(data);  //function getting info of given coin
-                    for (var i = 0; i <data.length; i++) {
+                    for (var i = 0; i <(data.data).length; i++) {
                         // console.log(cryptoResult);
-                        cryptoResult.append(data[i]);
+                        cryptoResult.append(data.data[i]);
                     }
                 })
             }
@@ -110,3 +110,17 @@ var roundup= function (num){
 let userInput = document.getElementById('searchBar').value;
 localStorage.setItem('userCoin', userInput);
 console.log(userInput);
+$(document).ready(function(){
+ 
+// Initialize select2
+$("#selUser").select2();
+
+// Read selected option
+$('#but_read').click(function(){
+var username = $('#selUser option:selected').text();
+var userid = $('#selUser').val();
+
+$('#result').html("id : " + userid + ", name : " + username);
+
+});
+});
