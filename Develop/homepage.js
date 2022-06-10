@@ -110,6 +110,7 @@ var roundup= function (num){
 let userInput = document.getElementById('searchBar').value;
 localStorage.setItem('userCoin', userInput);
 console.log(userInput);
+
 $(document).ready(function(){
  
 // Initialize select2
