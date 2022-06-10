@@ -2,9 +2,9 @@
 const apiKey1 = 'dfa7d3fb-bc85-4ce8-8b1f-6d92e49f4c3e'
 const apiKey2 = 'e186bef8-4358-444a-b7d1-c798f20e09ff'
 
-
+var dropdownChoice;
 // querySelect user input from search bar
-var searchBarInput = document.getElementById('searchBar')
+var searchBarInput = document.querySelector('select2-search__field');
     // user input to be stored locally
 var submitBtnEl = document.getElementById('submitBtn')
 // DOM for appending Search Results
@@ -107,9 +107,8 @@ var roundup= function (num){
 }
    
 // saves user input into local storage in order to use it on userpagehtml
-let userInput = document.getElementById('searchBar').value;
-localStorage.setItem('userCoin', userInput);
-console.log(userInput);
+localStorage.setItem('userCoin', searchBarInput);
+console.log(searchBarInput);
 
 $(document).ready(function(){
  
@@ -125,3 +124,6 @@ $('#result').html("id : " + userid + ", name : " + username);
 
 });
 });
+
+dropdownChoice = searchBarInput.option[searchBarInput.selectedIndex].value;
+console.log(dropdownChoice);
