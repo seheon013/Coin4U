@@ -12,9 +12,12 @@ var cryptoResult = document.getElementById('cryptoResult-1');
 
 const coinArray = {'Bitcoin': 0, 'Ethereum':1, 'Tether':2, 'USD Coin':3, 'BNB':4, 'Cardano':5, 'XRP':6, 'Binance USD':7, 'Solana':7, 'Dogecoin':9, 'Polkadot':10}
 // addEventListener to search button and submit user input to fetch
-submitBtnEl.addEventListener('click', searchApi('Ethereum')); //Ethereum is an example.
+submitBtnEl.addEventListener('click', searchApi); //Ethereum is an example.
     // and load function fetch url 
-    function searchApi() { 
+    function searchApi(event) { 
+        // prevents page from reload on button click
+        event.preventDefault();
+        
         // hide searchResults divs prior to displaying user search results
         $('.searchResults').css("display", "none");
         // coinbase api
@@ -103,3 +106,7 @@ var roundup= function (num){
     return Math.round(num*100)/100
 }
    
+// saves user input into local storage in order to use it on userpagehtml
+let userInput = document.getElementById('searchBar').value;
+localStorage.setItem('userCoin', userInput);
+console.log(userInput);
