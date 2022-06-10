@@ -7,6 +7,8 @@ const apiKey2 = 'e186bef8-4358-444a-b7d1-c798f20e09ff'
 var searchBarInput = document.getElementById('searchBar')
     // user input to be stored locally
 var submitBtnEl = document.getElementById('submitBtn')
+// DOM for appending Search Results
+var cryptoResult = document.getElementById('cryptoResult-1');
 
 const coinArray = {'Bitcoin': 0, 'Ethereum':1, 'Tether':2, 'USD Coin':3, 'BNB':4, 'Cardano':5, 'XRP':6, 'Binance USD':7, 'Solana':7, 'Dogecoin':9, 'Polkadot':10}
 // addEventListener to search button and submit user input to fetch
@@ -28,16 +30,19 @@ submitBtnEl.addEventListener('click', searchApi('Ethereum')); //Ethereum is an e
             .then(function (response) {
                 if(response.ok) {
                 response.json().then(function(data){
-                    getParam(data, coinName)  //function getting info of given coin
+                    console.log(data);  //function getting info of given coin
+                    for (var i = 0; i <data.length; i++) {
+                        // console.log(cryptoResult);
+                        cryptoResult.append(data[i]);
+                    }
                 })
-                
             }
                 // else alert error message
                 else{
                     alert('Error' + response.statusText)
                 };
             })
-        
+            console.log(cryptoResult);
    
         // exchangeRate api
         var exchangeRate = 'https://v6.exchangerate-api.com/v6/de9b9fda136b7ee1b28581d7/latest/USD';
