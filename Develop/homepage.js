@@ -26,13 +26,13 @@ $(document).ready(function () {
         // saves dropdown choice to var userChoice
         var c = document.getElementById("selUser");
         var userChoice = c.options[c.selectedIndex].text;
-        // console.log(userChoice);
+        
         // saves user input into local storage in order to use it on userpagehtml
         window.localStorage.setItem("userchoice", userChoice);
 
 
         var cryptoselected = $('#selUser option:selected').text();
-        userselectCryptos.push(cryptoselected)
+        
         var coinUrl = 'https://cors-anywhere.herokuapp.com/https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest';
         fetch(coinUrl, {
             method: 'GET',
@@ -44,7 +44,13 @@ $(document).ready(function () {
             .then(function (response) {
                 if (response.ok) {
                     response.json().then(function (data) {
+                    //check if the crypto selected by user is already searched.
+                    if (userselectCryptos.includes(cryptoselected) == false ){
                         getParam(data, cryptoselected)
+                    }
+                    if (userselectCryptos.indexOf(cryptoselected) === -1 ){
+                        userselectCryptos.push(cryptoselected)
+                    }
                     })
                 }
                 // else alert error message
@@ -155,19 +161,3 @@ var roundup = function (num) {
     //round up to decimal 2 point
     return Math.round(num * 100) / 100
 }
-
-// function for selecting crypto currency ID and NAME at #result div
-$(document).ready(function () {
-
-    // Initialize select2
-    $("#selUser").select2();
-
-    // Read selected option
-    $('#but_read').click(function () {
-        var username = $('#selUser option:selected').text();
-        var userid = $('#selUser').val();
-
-        $('#result').html("id : " + userid + ", name : " + username);
-
-    });
-});
