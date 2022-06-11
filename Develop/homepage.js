@@ -46,38 +46,6 @@ $(document).ready(function(){
     });
     });
 
-
-//submitBtnEl.addEventListener('click', searchApi()); 
-    // and load function fetch url 
-    function searchApi() { 
-        // hide searchResults divs prior to displaying user search results
-        $('.searchResults').css("visibility", "visible");
-        // coinbase api
-        var coinUrl = 'https://cors-anywhere.herokuapp.com/https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest';
-        
-        fetch (coinUrl, {
-            method: 'GET',
-            headers: {
-                'X-CMC_PRO_API_KEY': apiKey1,
-            },
-        })
-        // if fetch success then get response
-            .then(function (response) {
-                if(response.ok) {
-                response.json().then(function(data){
-                    console.log(data);  //function getting info of given coin
-                    for (var i = 0; i <data.length; i++) {
-                        getParam(data, cryptoselected);
-                        // cryptoResult.textContent(data.data[0]);
-                    }
-                })
-            }
-                // else alert error message
-                else{
-                    alert('Error' + response.statusText)
-                };
-            })
-   
         // exchangeRate api
         var exchangeRate = 'https://v6.exchangerate-api.com/v6/de9b9fda136b7ee1b28581d7/latest/USD';
 
@@ -95,10 +63,8 @@ $(document).ready(function(){
                     alert('Error' + response.statusText)
 
                 };
-        })
+        });
         // location.href='userpage.html';
-        
-        };
 
         // API key
 // define search params of response from url
@@ -132,10 +98,24 @@ var getParam = function (data, symbol){
     console.log('24 Hour Volume: $'+volume24h)
 
     // generate the search result div
+
+    // create <h#> tags and set attribute text to getParam vars
     var h2tag = $('<h2>').attr('id', 'cryptoName').text(symbol);
-    var h5tag = $('<h5>').attr('id', 'cryptoPrice').text(price);
+    var h5tag = $('<h5>').attr('id', 'cryptoPrice').text('Current price: $' + price);
+    var h5tag1hr = $('<h5>').attr('id', 'crypto1Hr').text('1 Hour price change: ' + percent_change_1h);
+    var h5tag24hr = $('<h5>').attr('id', 'crypto24Hr').text('24 Hour price change: ' + percent_change_24h);
+    var h5tag7days = $('<h5>').attr('id', 'crypto7Days').text('7 Day price change: ' + percent_change_7d);
+    var h5tagMarketCap = $('<h5>').attr('id', 'cryptoMarketCap').text('Current market cap: $' + marketcap);
+
+    // append created <h#> to parent <div>
     var divResults1 = $('<div>').append(h2tag)
     divResults1.append(h5tag)
+    divResults1.append(h5tag1hr)
+    divResults1.append(h5tag24hr)
+    divResults1.append(h5tag7days)
+    divResults1.append(h5tagMarketCap)
+
+    // append created parent <div> of <h#> to 
     var displayResults = $('<div>').attr('class', 'displayResults').append(divResults1)
     var card = $('<div>').attr('class', 'searchResults').append(displayResults)
     $('.results').prepend(card);
