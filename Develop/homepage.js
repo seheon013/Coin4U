@@ -26,7 +26,7 @@ $(document).ready(function () {
         // saves dropdown choice to var userChoice
         var c = document.getElementById("selUser");
         var userChoice = c.options[c.selectedIndex].text;
-        console.log(userChoice);
+        // console.log(userChoice);
         // saves user input into local storage in order to use it on userpagehtml
         window.localStorage.setItem("userchoice", userChoice);
 
@@ -70,7 +70,6 @@ $(document).ready(function () {
         method: 'GET',
 
     })
-    console.log(cryptoResult);
 
     // exchangeRate api
     var exchangeRate = 'https://v6.exchangerate-api.com/v6/de9b9fda136b7ee1b28581d7/latest/USD';
@@ -82,7 +81,7 @@ $(document).ready(function () {
         .then(function (response) {
             if (response.ok) {
                 response.json().then(function (data) {
-                    console.log(data)
+                    // console.log(data)
 
                 })
             }
@@ -118,15 +117,15 @@ var getParam = function (data, symbol) {
 
     // saves user selected coin data into local storage
     window.localStorage.setItem("price", price);
-    console.log(price);
+    // console.log(price);
     window.localStorage.setItem("percentChange", percent_change_24h);
 
-    console.log('Current price: $' + price)
-    console.log('Current market cap: $' + marketcap)
-    console.log('1 Hour price change: ' + percent_change_1h + '%')
-    console.log('24 Hour price change: ' + percent_change_24h + '%')
-    console.log('7 Day price change: ' + percent_change_7d + '%')
-    console.log('24 Hour Volume: $' + volume24h)
+    // console.log('Current price: $' + price)
+    // console.log('Current market cap: $' + marketcap)
+    // console.log('1 Hour price change: ' + percent_change_1h + '%')
+    // console.log('24 Hour price change: ' + percent_change_24h + '%')
+    // console.log('7 Day price change: ' + percent_change_7d + '%')
+    // console.log('24 Hour Volume: $' + volume24h)
 
     // generate the search result div
 
