@@ -189,9 +189,27 @@ body {
 }
 
 /* responsive to one column layout for 800px viewport */
-@media (max-width: 800px) {
+@media screen and (max-width: 800px) {
     .body {
-        flex: 100%;
+        flex-shrink: 50%;
+        font-size: 1rem;
+    }
+    .field {
+        flex-wrap: wrap;
+    }
+    .header {
+        font-size: 1rem;
+    }
+    .type-writer {
+        font-size: 1rem;
+    }
+    .control {
+        width: 50%;
+        padding-right: 2rem;
+    }
+    #gif-embed {
+        width: 80%;
+        padding: 1rem;
     }
 }
 
