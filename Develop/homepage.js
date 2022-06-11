@@ -55,35 +55,6 @@ $(document).ready(function () {
         // console.log(cryptoResult);
     });
 });
-
-
-//submitBtnEl.addEventListener('click', searchApi()); 
-// and load function fetch url 
-function searchApi() {
-    // hide searchResults divs prior to displaying user search results
-    $('.searchResults').css("visibility", "visible");
-    // coinbase api
-    var coinUrl = 'https://cors-anywhere.herokuapp.com/https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest';
-    fetch(coinUrl, {
-        method: 'GET',
-        headers: {
-            'X-CMC_PRO_API_KEY': apiKey1,
-        },
-    })
-        // if fetch success then get response
-        .then(function (response) {
-            if (response.ok) {
-                response.json().then(function (data) {
-                    getParam(data, cryptoselected)
-                })
-            }
-            // else alert error message
-            else {
-                alert('Error' + response.statusText)
-            };
-        })
-    console.log(cryptoResult);
-
         // exchangeRate api
         var exchangeRate = 'https://v6.exchangerate-api.com/v6/de9b9fda136b7ee1b28581d7/latest/USD';
 
@@ -121,8 +92,7 @@ function searchApi() {
                 };
         });
         // location.href='userpage.html';
-    }
-// API key
+
 // define search params of response from url
 var price = 0;
 var marketcap = 0;
@@ -187,10 +157,7 @@ var roundup = function (num) {
     return Math.round(num * 100) / 100
 }
 
-
-
-
-
+// function for selecting crypto currency ID and NAME at #result div
 $(document).ready(function () {
 
     // Initialize select2
