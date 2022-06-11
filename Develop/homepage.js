@@ -90,12 +90,12 @@ var getParam = function (data, symbol){
     volume24h = data.data[num].quote.USD.volume_24h
     volume24h = roundup(volume24h)
     
-    console.log('Current price: $'+ price)
-    console.log('Current market cap: $' + marketcap)
-    console.log('1 Hour price change: '+percent_change_1h+'%')
-    console.log('24 Hour price change: '+ percent_change_24h+'%')
-    console.log('7 Day price change: '+percent_change_7d+'%')
-    console.log('24 Hour Volume: $'+volume24h)
+    // console.log('Current price: $'+ price)
+    // console.log('Current market cap: $' + marketcap)
+    // console.log('1 Hour price change: '+ percent_change_1h+'%')
+    // console.log('24 Hour price change: '+ percent_change_24h+'%')
+    // console.log('7 Day price change: '+ percent_change_7d+'%')
+    // console.log('24 Hour Volume: $'+ volume24h)
 
     // generate the search result div
 
