@@ -33,17 +33,6 @@ var exchangeRate = 'https://v6.exchangerate-api.com/v6/de9b9fda136b7ee1b28581d7/
         })
 // function that renders data into HTML
 
-function displayCurrency(data) {
-    const myJSON = data;
-    const myJSONparse = JSON.parse(myJSON);
-    let USD = myJSONparse.USD;
-    console.log('thisis'+USD);
-    console.log()
-//    const USD = conversion_rates.USD;
-//    console.log(data.conversion_rates[0]);
-   const USDdiv = document.getElementById("currency-table");
-}
-
 function getExchangeRate(data) {
     EUR = data.conversion_rates.EUR
     JPY = data.conversion_rates.JPY
@@ -54,4 +43,3 @@ function getExchangeRate(data) {
     return EUR, JPY, GBP, AUD , CNY
 }
 
-console.log( EUR, JPY, GBP, AUD ,CNY)

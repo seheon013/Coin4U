@@ -89,6 +89,13 @@ body {
     transition: 2s;
 }
 
+#mypageBtn {
+    background-color: greenyellow;
+    position:absolute;
+    right: 50%;
+    padding: 10px;
+}
+ 
 /* https://www.sitepoint.com/css-typewriter-effect/ */
 /* first make text hidden until reveal by type out animation */
 .type-writer {

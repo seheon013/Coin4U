@@ -22,7 +22,6 @@ $(document).ready(function(){
     // Read selected option
     $('#but_read').click(function(){
     var cryptoselected = $('#selUser option:selected').text();
-    userselectCryptos.push(cryptoselected)
     var coinUrl = 'https://cors-anywhere.herokuapp.com/https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest';
     fetch (coinUrl, {
         method: 'GET',
@@ -34,7 +33,14 @@ $(document).ready(function(){
         .then(function (response) {
             if(response.ok) {
             response.json().then(function(data){
-                getParam(data, cryptoselected)
+                //check if the crypto selected by user is already searched.
+                if (userselectCryptos.includes(cryptoselected) == false ){
+                    getParam(data, cryptoselected)
+                }
+                if (userselectCryptos.indexOf(cryptoselected) === -1 ){
+                    userselectCryptos.push(cryptoselected)
+                }
+                
             })
         }
             // else alert error message
@@ -42,7 +48,6 @@ $(document).ready(function(){
                 alert('Error' + response.statusText)
             };
         })
-        // console.log(cryptoResult);
     });
     });
 
@@ -117,4 +122,9 @@ var getParam = function (data, symbol){
 var roundup = function (num){
     //round up to decimal 2 point
     return Math.round(num*100)/100
+}
+
+
+var cryptoSave = function (list){
+
 }
