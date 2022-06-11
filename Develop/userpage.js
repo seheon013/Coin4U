@@ -1,3 +1,18 @@
+// gets item from localStorage to display on user card
+const userCoin = document.createElement("p");
+const userchoice = document.createTextNode(window.localStorage.getItem("userchoice"));
+console.log(userchoice);
+userCoin.appendChild(userchoice);
+document.getElementById("userCoin-header").appendChild(userCoin);
+
+const Price = document.getElementById('price');
+const coinPrice = document.createTextNode(window.localStorage.getItem("price"));
+Price.appendChild(coinPrice);
+// console.log(price);
+
+const change = document.getElementById('change');
+const percentChange = document.createTextNode(window.localStorage.getItem("percentChange"));
+change.appendChild(percentChange); 
 var EUR = 0
 var JPY = 0
 var GBP = 0
@@ -31,9 +46,11 @@ var exchangeRate = 'https://v6.exchangerate-api.com/v6/de9b9fda136b7ee1b28581d7/
 
                 };
         })
+        
+// 
 // function that renders data into HTML
 
-function displayCurrency(data) {
+function displayCurrency(data, userCoin) {
     const myJSON = data;
     const myJSONparse = JSON.parse(myJSON);
     let USD = myJSONparse.USD;
