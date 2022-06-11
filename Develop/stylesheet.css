@@ -61,6 +61,11 @@ body {
 .displayResults {
     justify-content: center;
     text-align: center;
+    padding: 10px;
+}
+
+#cryptoName, #cryptoPrice, #crypto1Hr, #crypto24Hr, #crypto7Days, #cryptoMarketCap {
+    padding: 15px;
 }
 
 .main .field {
