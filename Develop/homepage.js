@@ -47,11 +47,11 @@ $(document).ready(function(){
     });
 
 
-submitBtnEl.addEventListener('click', searchApi()); 
+//submitBtnEl.addEventListener('click', searchApi()); 
     // and load function fetch url 
     function searchApi() { 
         // hide searchResults divs prior to displaying user search results
-        $('.searchResults').css("visibility", "hidden");
+        $('.searchResults').css("visibility", "visible");
         // coinbase api
         var coinUrl = 'https://cors-anywhere.herokuapp.com/https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest';
         
@@ -130,6 +130,15 @@ var getParam = function (data, symbol){
     console.log('24 Hour price change: '+ percent_change_24h+'%')
     console.log('7 Day price change: '+percent_change_7d+'%')
     console.log('24 Hour Volume: $'+volume24h)
+
+    // generate the search result div
+    var h2tag = $('<h2>').attr('id', 'cryptoName').text(symbol);
+    var h5tag = $('<h5>').attr('id', 'cryptoPrice').text(price);
+    var divResults1 = $('<div>').append(h2tag)
+    divResults1.append(h5tag)
+    var displayResults = $('<div>').attr('class', 'displayResults').append(divResults1)
+    var card = $('<div>').attr('class', 'searchResults').append(displayResults)
+    $('.results').prepend(card);
 }
 
 var roundup = function (num){
