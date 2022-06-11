@@ -18,21 +18,50 @@ const coinArray = { 'Bitcoin': 0, 'Ethereum': 1, 'Tether': 2, 'USD Coin': 3, 'BN
 // searchBtnEl.addEventListener('click', searchApi); //Ethereum is an example.
 $(document).ready(function () {
 
-
     // Initialize select2
     $("#selUser").select2();
 
     // Read selected option
-    $('#but_read').click(function () {
-    // saves dropdown choice to var userChoice
+    $('#but_read').click(function(){
+         // saves dropdown choice to var userChoice
         var c = document.getElementById("selUser");
         var userChoice = c.options[c.selectedIndex].text;
         console.log(userChoice);
 // saves user input into local storage in order to use it on userpagehtml
 localStorage.setItem("userchoice", );
 
-        var cryptoselected = $('#selUser option:selected').text();
-        userselectCryptos.push(cryptoselected)
+    var cryptoselected = $('#selUser option:selected').text();
+    userselectCryptos.push(cryptoselected)
+    var coinUrl = 'https://cors-anywhere.herokuapp.com/https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest';
+    fetch (coinUrl, {
+        method: 'GET',
+        headers: {
+            'X-CMC_PRO_API_KEY': apiKey1,
+        },
+    })
+    // if fetch success then get response
+        .then(function (response) {
+            if(response.ok) {
+            response.json().then(function(data){
+                getParam(data, cryptoselected)
+            })
+        }
+            // else alert error message
+            else{
+                alert('Error' + response.statusText)
+            };
+        })
+        // console.log(cryptoResult);
+    });
+    });
+
+
+//submitBtnEl.addEventListener('click', searchApi()); 
+    // and load function fetch url 
+    function searchApi() { 
+        // hide searchResults divs prior to displaying user search results
+        $('.searchResults').css("visibility", "visible");
+        // coinbase api
         var coinUrl = 'https://cors-anywhere.herokuapp.com/https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest';
         fetch(coinUrl, {
             method: 'GET',
@@ -75,17 +104,24 @@ function searchApi() {
             if (response.ok) {
                 response.json().then(function (data) {
                     console.log(data);  //function getting info of given coin
-                    for (var i = 0; i < (data.data).length; i++) {
-                        // console.log(cryptoResult);
-
-                        cryptoResult.append(data.data[i]);
+                    for (var i = 0; i <data.length; i++) {
+                        getParam(data, cryptoselected);
+                        // cryptoResult.textContent(data.data[0]);
                     }
                 })
             }
-            // else alert error message
-            else {
-                alert('Error' + response.statusText)
-            };
+                // else alert error message
+                else{
+                    alert('Error' + response.statusText)
+                };
+            })
+   
+        // exchangeRate api
+        var exchangeRate = 'https://v6.exchangerate-api.com/v6/de9b9fda136b7ee1b28581d7/latest/USD';
+
+        fetch (exchangeRate, {
+            method: 'GET', 
+            
         })
     console.log(cryptoResult);
 
@@ -138,10 +174,19 @@ var getParam = function (data, symbol) {
 
     console.log('Current price: $' + price)
     console.log('Current market cap: $' + marketcap)
-    console.log('1 Hour price change: ' + percent_change_1h + '%')
-    console.log('24 Hour price change: ' + percent_change_24h + '%')
-    console.log('7 Day price change: ' + percent_change_7d + '%')
-    console.log('24 Hour Volume: $' + volume24h)
+    console.log('1 Hour price change: '+percent_change_1h+'%')
+    console.log('24 Hour price change: '+ percent_change_24h+'%')
+    console.log('7 Day price change: '+percent_change_7d+'%')
+    console.log('24 Hour Volume: $'+volume24h)
+
+    // generate the search result div
+    var h2tag = $('<h2>').attr('id', 'cryptoName').text(symbol);
+    var h5tag = $('<h5>').attr('id', 'cryptoPrice').text(price);
+    var divResults1 = $('<div>').append(h2tag)
+    divResults1.append(h5tag)
+    var displayResults = $('<div>').attr('class', 'displayResults').append(divResults1)
+    var card = $('<div>').attr('class', 'searchResults').append(displayResults)
+    $('.results').prepend(card);
 }
 
 var roundup = function (num) {
