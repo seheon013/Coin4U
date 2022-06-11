@@ -1,3 +1,19 @@
+// gets item from localStorage to display on user card
+const userCoin = document.createElement("p");
+const userchoice = document.createTextNode(window.localStorage.getItem("userchoice"));
+console.log(userchoice);
+userCoin.appendChild(userchoice);
+document.getElementById("userCoin-header").appendChild(userCoin);
+
+const Price = document.getElementById('price');
+const coinPrice = document.createTextNode(window.localStorage.getItem("price"));
+Price.appendChild(coinPrice);
+// console.log(price);
+
+const change = document.getElementById('change');
+const percentChange = document.createTextNode(window.localStorage.getItem("percentChange"));
+change.appendChild(percentChange); 
+
 var exchangeRate = 'https://v6.exchangerate-api.com/v6/de9b9fda136b7ee1b28581d7/latest/USD';
 
         fetch (exchangeRate, {
@@ -30,7 +46,3 @@ function displayCurrency(data, userCoin) {
    const USDdiv = document.getElementById("currency-table");
 }
 
-console.log('Current price: $' + price);
-
-var userChoice = sessionStorage.getItem("userchoice");
-console.log(userChoice);

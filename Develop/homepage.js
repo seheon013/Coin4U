@@ -22,46 +22,17 @@ $(document).ready(function () {
     $("#selUser").select2();
 
     // Read selected option
-    $('#but_read').click(function(){
-         // saves dropdown choice to var userChoice
+    $('#but_read').click(function () {
+        // saves dropdown choice to var userChoice
         var c = document.getElementById("selUser");
         var userChoice = c.options[c.selectedIndex].text;
         console.log(userChoice);
-// saves user input into local storage in order to use it on userpagehtml
-localStorage.setItem("userchoice", );
-
-    var cryptoselected = $('#selUser option:selected').text();
-    userselectCryptos.push(cryptoselected)
-    var coinUrl = 'https://cors-anywhere.herokuapp.com/https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest';
-    fetch (coinUrl, {
-        method: 'GET',
-        headers: {
-            'X-CMC_PRO_API_KEY': apiKey1,
-        },
-    })
-    // if fetch success then get response
-        .then(function (response) {
-            if(response.ok) {
-            response.json().then(function(data){
-                getParam(data, cryptoselected)
-            })
-        }
-            // else alert error message
-            else{
-                alert('Error' + response.statusText)
-            };
-        })
-        // console.log(cryptoResult);
-    });
-    });
+        // saves user input into local storage in order to use it on userpagehtml
+        window.localStorage.setItem("userchoice", userChoice);
 
 
-//submitBtnEl.addEventListener('click', searchApi()); 
-    // and load function fetch url 
-    function searchApi() { 
-        // hide searchResults divs prior to displaying user search results
-        $('.searchResults').css("visibility", "visible");
-        // coinbase api
+        var cryptoselected = $('#selUser option:selected').text();
+        userselectCryptos.push(cryptoselected)
         var coinUrl = 'https://cors-anywhere.herokuapp.com/https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest';
         fetch(coinUrl, {
             method: 'GET',
@@ -81,10 +52,39 @@ localStorage.setItem("userchoice", );
                     alert('Error' + response.statusText)
                 };
             })
-        console.log(cryptoResult);
-
+        // console.log(cryptoResult);
     });
 });
+
+
+//submitBtnEl.addEventListener('click', searchApi()); 
+// and load function fetch url 
+function searchApi() {
+    // hide searchResults divs prior to displaying user search results
+    $('.searchResults').css("visibility", "visible");
+    // coinbase api
+    var coinUrl = 'https://cors-anywhere.herokuapp.com/https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest';
+    fetch(coinUrl, {
+        method: 'GET',
+        headers: {
+            'X-CMC_PRO_API_KEY': apiKey1,
+        },
+    })
+        // if fetch success then get response
+        .then(function (response) {
+            if (response.ok) {
+                response.json().then(function (data) {
+                    getParam(data, cryptoselected)
+                })
+            }
+            // else alert error message
+            else {
+                alert('Error' + response.statusText)
+            };
+        })
+    console.log(cryptoResult);
+
+}
 
 // and load function fetch url 
 function searchApi() {
@@ -104,25 +104,25 @@ function searchApi() {
             if (response.ok) {
                 response.json().then(function (data) {
                     console.log(data);  //function getting info of given coin
-                    for (var i = 0; i <data.length; i++) {
+                    for (var i = 0; i < data.length; i++) {
                         getParam(data, cryptoselected);
                         // cryptoResult.textContent(data.data[0]);
                     }
                 })
             }
-                // else alert error message
-                else{
-                    alert('Error' + response.statusText)
-                };
-            })
-   
-        // exchangeRate api
-        var exchangeRate = 'https://v6.exchangerate-api.com/v6/de9b9fda136b7ee1b28581d7/latest/USD';
-
-        fetch (exchangeRate, {
-            method: 'GET', 
-            
+            // else alert error message
+            else {
+                alert('Error' + response.statusText)
+            };
         })
+
+    // exchangeRate api
+    var exchangeRate = 'https://v6.exchangerate-api.com/v6/de9b9fda136b7ee1b28581d7/latest/USD';
+
+    fetch(exchangeRate, {
+        method: 'GET',
+
+    })
     console.log(cryptoResult);
 
     // exchangeRate api
@@ -172,12 +172,17 @@ var getParam = function (data, symbol) {
     volume24h = data.data[num].quote.USD.volume_24h
     volume24h = roundup(volume24h)
 
+    // saves user selected coin data into local storage
+    window.localStorage.setItem("price", price);
+    console.log(price);
+    window.localStorage.setItem("percentChange", percent_change_24h);
+
     console.log('Current price: $' + price)
     console.log('Current market cap: $' + marketcap)
-    console.log('1 Hour price change: '+percent_change_1h+'%')
-    console.log('24 Hour price change: '+ percent_change_24h+'%')
-    console.log('7 Day price change: '+percent_change_7d+'%')
-    console.log('24 Hour Volume: $'+volume24h)
+    console.log('1 Hour price change: ' + percent_change_1h + '%')
+    console.log('24 Hour price change: ' + percent_change_24h + '%')
+    console.log('7 Day price change: ' + percent_change_7d + '%')
+    console.log('24 Hour Volume: $' + volume24h)
 
     // generate the search result div
     var h2tag = $('<h2>').attr('id', 'cryptoName').text(symbol);
