@@ -46,8 +46,7 @@ var exchangeRate = 'https://v6.exchangerate-api.com/v6/de9b9fda136b7ee1b28581d7/
 
                 };
         })
-        
-// 
+         
 // function that renders data into HTML
 
 function displayCurrency(data, userCoin) {

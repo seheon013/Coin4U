@@ -31,7 +31,6 @@ h1 {
 .card-header {
     background-image: linear-gradient(rgb(233, 181, 12), rgb(255, 147, 230), rgb(220, 122, 9));
     justify-content: center;
+    text-align: center;
 }
 
-/* added the currency exchange table to our userpage and worked with bulma to add the coin info card
-will be working on displaying the actual price of the coins after they have been converted to the different currencies  */
