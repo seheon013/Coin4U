@@ -30,4 +30,7 @@ function displayCurrency(data, userCoin) {
    const USDdiv = document.getElementById("currency-table");
 }
 
- 
+console.log('Current price: $' + price);
+
+var userChoice = sessionStorage.getItem("userchoice");
+console.log(userChoice);
