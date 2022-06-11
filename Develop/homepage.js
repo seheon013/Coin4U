@@ -122,8 +122,8 @@ var getParam = function (data, symbol) {
     volume24h = roundup(volume24h)
 
     // saves user selected coin data into local storage
+    console.log(price);
     window.localStorage.setItem("price", price);
-    // console.log(price);
     window.localStorage.setItem("percentChange", percent_change_24h);
 
     // console.log('Current price: $' + price)
@@ -132,8 +132,6 @@ var getParam = function (data, symbol) {
     // console.log('24 Hour price change: ' + percent_change_24h + '%')
     // console.log('7 Day price change: ' + percent_change_7d + '%')
     // console.log('24 Hour Volume: $' + volume24h)
-
-    // generate the search result div
 
     // create <h#> tags and set attribute text to getParam vars
     var h2tag = $('<h2>').attr('id', 'cryptoName').text(symbol);
