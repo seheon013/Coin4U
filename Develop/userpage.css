@@ -15,11 +15,12 @@ body {
     flex-wrap: wrap;
     flex-direction: column;
     justify-content: center;
+    font-family: 'Barlow Condensed', sans-serif;
 }
 
 h1 {
     text-align: center;
-    font-family: monospace;
+    font-family: 'Barlow Condensed', sans-serif;
     padding: 2rem;
 }
 
@@ -28,10 +29,35 @@ h1 {
     margin: auto;
 }
 
+.card {
+    width: 300px;
+  height: 300px;
+  transition: width 1s;
+}
+.card:hover {
+    width: 500px;
+}
+
 .card-header {
     background-image: linear-gradient(rgb(233, 181, 12), rgb(255, 147, 230), rgb(220, 122, 9));
     justify-content: center;
+    font-size: xx-large;
 }
 
-/* added the currency exchange table to our userpage and worked with bulma to add the coin info card
-will be working on displaying the actual price of the coins after they have been converted to the different currencies  */
+p {
+    color: black;
+    font-family: 'Barlow Condensed', sans-serif;
+}
+
+#Price {
+    display: flex;
+}
+#Change {
+    display: flex;
+}
+
+.table {
+    font-family: 'Barlow Condensed', sans-serif;
+    margin: auto;
+}
+
