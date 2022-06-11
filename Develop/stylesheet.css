@@ -80,17 +80,12 @@ body {
     width: 50%;
 }
 
-.checkbox:hover {
-    transform: scale(1.2);
-    transition: 2s;
+.scrollToEnd {
+    padding: 20px;
 }
 
-#submitBtn {
-    padding: 2rem;
-}   
-
-#submitBtn:hover {
-    transform: scale(2);
+.scrollToEnd:hover {
+    transform: scale(1.2);
     transition: 2s;
 }
 
