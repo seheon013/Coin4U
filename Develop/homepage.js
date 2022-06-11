@@ -124,12 +124,10 @@ var getParam = function (data, symbol) {
     volume24h = roundup(volume24h)
 
     // saves user selected coin data into local storage
+    console.log(price);
     window.localStorage.setItem("price", price);
-
     window.localStorage.setItem("percentChange", percent_change_24h);
 
-
-    // generate the search result div
 
     // create <h#> tags and set attribute text to getParam vars
     var h2tag = $('<h2>').attr('id', 'cryptoName').text(symbol);
@@ -157,3 +155,7 @@ var roundup = function (num) {
     //round up to decimal 2 point
     return Math.round(num * 100) / 100
 }
+
+document.querySelector('#scrollToBottom').addEventListener('click', () => {
+    window.scrollTo(0, document.body.scrollHeight);
+});
