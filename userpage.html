@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Develop/userpage.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+    <title>Coin4U</title>
+</head>
+<body>
+    <header>
+ <h1>Coin Status</h1>
+</header>
+
+<container class="coinInfoCard">
+    <div class="card">
+        <div class="card-header" id="userCoin-header">
+          <!-- <p class="card-header-title">
+            COIN NAME
+          </p> -->
+        </div>
+            <div class="card-content">
+              <div class="content">
+                <div id="Price"> <p>Price: </p><p id="price"> </p></div> <br>
+                <div id="Change">  <p>Percent Change(24H): </p><p id="change"> </p></div><br>
+              </div>
+            </div>
+      </div>
+
+</container>
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Currency</th>
+        <th scope="col">Exchange Rate</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>US dollar (USD)</td>
+        <td id="USD">$  1</td>
+      </tr>
+      <tr>
+        <td>Euro (EUR)</td>
+        <td id="EUR">$</td>
+      </tr>
+      <tr>
+        <td>Japanese yen (JPY)</td>
+        <td id="JPY">$</td>
+      </tr>
+      <tr>
+        <td>Pound sterling (GBP)</td>
+        <td id="GBP">$</td>
+      </tr>
+      <tr>
+        <td>Australian dollar (AUD)</td>
+        <td id="AUD">$</td>
+      </tr>
+      <tr>
+        <td>Chinese Yuan (CNY)</td>
+        <td id="CNY">$</td>
+      </tr>
+    </tbody>
+  </table>
+
+</body>
+<script src="Develop/userpage.js"></script>
+</html>

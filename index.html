@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <title>Coin4U</title>
+    <!-- JQuery linked to html -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <!-- CSS framework Bulma linked -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.min.css" type="stylesheet">
+    <!-- CSS stylesheet linked -->
+    <link rel="stylesheet" href="Develop/stylesheet.css">
+    <!-- Select2 CSS --> 
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/css/select2.min.css" rel="stylesheet" /> 
+
+    <!-- jQuery --> <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> 
+
+    <!-- Select2 JS --> 
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js"></script>
+</head>
+    <body>
+        <header class="header h1">
+            <h1>
+                🪙<span class="emoji earth" role="img" aria-label="earth rotating"></span>
+                🪙 Coin4U 💰
+                <span class="emoji moon" role="img" aria-label="moon phases"></span>💰
+            </h1>
+        </header>
+        <section class="main">
+            <div class = "field">
+                <div class = "type-container">
+                    <div class = "type-writer"> 
+                    Type in a CryptoCurrency of your choosing to begin market cap value tracking: <i class = "i">BitCoin , Ethereum, DogeCoin ...</i> 
+                    </div>
+                </div>
+                    <br>
+                    <br>
+                <div class = "control">
+                    <select class = "input" id="selUser" type = "text" >
+                        <option value = 0> Select Crypto</option>
+                        <option value = 1>Bitcoin</option>
+                        <option value = 2>Ethereum</option>
+                        <option value = 3>Tether</option>
+                        <option value = 4>USD Coin</option>
+                        <option value = 5>BNB</option>
+                        <option value = 6>Cardano</option>
+                        <option value = 7>Binance USD</option>
+                        <option value = 8>XRP</option>
+                        <option value = 9>Solana</option>
+                        <option value = 10>Dogecoin</option>
+                        <option value = 11>Polkadot</option>
+                        <option value = 12>Wrapped Bitcoin</option>
+                        <option value = 13>TRON</option>
+                        <option value = 14>Dai</option>
+                        <option value = 15>Avalanche</option>
+                        <option value = 16>UNUS SED LEO</option>
+                        <option value = 17>Shiba Inu</option>
+                        <option value = 18>Polygon</option>
+                        <option value = 19>Cronos</option>
+                        <option value = 20>FTX Token</option>
+                        <option value = 21>Litecoin</option>
+                    </select>
+                    <!-- <a href="userpage.html"> -->
+                    <input type = 'button' value = 'Search' id="but_read">
+                    <!-- </a> -->
+                    <br/>
+                    <div id ='result'></div>
+                    <div class = "scrollToEnd">
+                        <a href="#mypageBtn" id="scrollToPageEnd">
+                            YES!</a> I would also like to get the latest Curreny Exchange Rates with my Cypto search results!
+                            <a href = "https://www.exchangerate-api.com/" target="_blank">souce:ExchangeRate-API</a>
+                    </div>
+                     
+
+                </div>
+                <br>
+                <!-- submitBtn commented out -->
+                <!-- <div id = "submitBtn">
+                    <button class = "button is-link" type="button">Submit</button>
+                </div> -->
+            </div>
+            <!-- animated gif added to style homepage -->
+            <div id="gif-embed">
+                <img src="https://media3.giphy.com/media/k4n9RZ6c9Gc3eOvBKc/giphy.gif?cid=6c09b952dfae87064841b17b5269c14b4a24a4bb3895bf42&amp;rid=giphy.gif&amp;ct=g" height="600px" width="100%">
+            </div>
+        </section>
+        <!-- user search results can be displayed immediately after the Search Bar /main section -->
+        <section class ="results">
+            <!-- parent container of Crypto API Results -->
+            <!-- <div class="searchResults">
+                <div class="displayResults">
+                    Chosen CryptoCurrency with Accepted Response Parameters Displayed Here!
+                    <div id= "cryptoResult-1">
+                        <h2 id="cryptoName"> Terra Classic LUNC </h2>
+                        <h5 id="cryptoPrice"> Price </h5>
+                        <h5 id="crypto24Hr"> 24 Hours </h5>
+                        <h5 id="crypto7Days"> 7 Days </h5>
+                        <h5 id="crypto30Days"> 30 Days </h5>
+                        <h5 id="cryptoMarketCap"> Market Cap </h5>
+                    </div>
+                </div>
+            </div>
+            <div class="searchResults">
+                <div class="displayResults">
+                    Chosen CryptoCurrency with Accepted Response Parameters Displayed Here!
+                    <div id= "cryptoResult-2">
+                        <h2 id="cryptoName"> Optimism OP </h2>
+                        <h5 id="cryptoPrice"> Price </h5>
+                        <h5 id="crypto1Hr"> 1 Hour </h5>
+                        <h5 id="crypto24Hr"> 24 Hours </h5>
+                        <h5 id="crypto7Days"> 7 Days </h5>
+                        <h5 id="crypto30Days"> 30 Days </h5>
+                        <h5 id="cryptoMarketCap"> Market Cap </h5>
+                    </div>
+                </div>
+            </div>
+            <div class="searchResults">
+                <div class="displayResults">
+                    Chosen CryptoCurrency with Accepted Response Parameters Displayed Here!
+                    <div id= "cryptoResult-3">
+                        <h2 id="cryptoName"> PancakeSwap CAKE </h2>
+                        <h5 id="cryptoPrice"> Price </h5>
+                        <h5 id="crypto24Hr"> 24 Hours </h5>
+                        <h5 id="crypto7Days"> 7 Days </h5>
+                        <h5 id="crypto30Days"> 30 Days </h5>
+                        <h5 id="cryptoMarketCap"> Market Cap </h5>
+                    </div>
+                </div>
+            </div>
+            <div class="searchResults">
+                <div class="displayResults">
+                    Chosen CryptoCurrency with Accepted Response Parameters Displayed Here!
+                    <div id= "cryptoResult-4">
+                        <h2 id="cryptoName"> STEPN GMT </h2>
+                        <h5 id="cryptoPrice"> Price </h5>
+                        <h5 id="crypto24Hr"> 24 Hours </h5>
+                        <h5 id="crypto7Days"> 7 Days </h5>
+                        <h5 id="crypto30Days"> 30 Days </h5>
+                        <h5 id="cryptoMarketCap"> Market Cap </h5>
+                    </div>
+                </div>
+            </div>
+            <div class="searchResults">
+                <div class="displayResults">
+                    Chosen CryptoCurrency with Accepted Response Parameters Displayed Here!
+                    <div id= "cryptoResult-5">
+                        <h2 id="cryptoName"> Ren REN </h2>
+                        <h5 id="cryptoPrice"> Price </h5>
+                        <h5 id="crypto24Hr"> 24 Hours </h5>
+                        <h5 id="crypto7Days"> 7 Days </h5>
+                        <h5 id="crypto30Days"> 30 Days </h5>
+                        <h5 id="cryptoMarketCap"> Market Cap </h5>
+                    </div>
+                </div>
+            </div>
+            <div class="searchResults">
+                <div class="displayResults">
+                    Chosen CryptoCurrency with Accepted Response Parameters Displayed Here!
+                    <div id= "cryptoResult-6">
+                        <h2 id="cryptoName"> ApeCoin APE </h2>
+                        <h5 id="cryptoPrice"> Price </h5>
+                        <h5 id="crypto24Hr"> 24 Hours </h5>
+                        <h5 id="crypto7Days"> 7 Days </h5>
+                        <h5 id="crypto30Days"> 30 Days </h5>
+                        <h5 id="cryptoMarketCap"> Market Cap </h5>
+                    </div>
+                </div>
+            </div>
+            <div class="searchResults">
+                <div class="displayResults">
+                    Chosen CryptoCurrency with Accepted Response Parameters Displayed Here!
+                    <div id= "cryptoResult-7">
+                        <h2 id="cryptoName"> Ultra UOS </h2>
+                        <h5 id="cryptoPrice"> Price </h5>
+                        <h5 id="crypto24Hr"> 24 Hours </h5>
+                        <h5 id="crypto7Days"> 7 Days </h5>
+                        <h5 id="crypto30Days"> 30 Days </h5>
+                        <h5 id="cryptoMarketCap"> Market Cap </h5>
+                    </div>
+                </div>
+            </div>
+            <div class="searchResults">
+                <div class="displayResults">
+                    Chosen CryptoCurrency with Accepted Response Parameters Displayed Here!
+                    <div id= "cryptoResult-8">
+                        <h2 id="cryptoName"> Lisk LSK </h2>
+                        <h5 id="cryptoPrice"> Price </h5>
+                        <h5 id="crypto24Hr"> 24 Hours </h5>
+                        <h5 id="crypto7Days"> 7 Days </h5>
+                        <h5 id="crypto30Days"> 30 Days </h5>
+                        <h5 id="cryptoMarketCap"> Market Cap </h5>
+                    </div>
+                </div>
+            </div> -->
+        </section>
+        <form action="userpage.html">
+            <input type ='submit' value = "Go to Mypage" id ="mypageBtn">
+            <a id="mypageBtntoScroll"></a>
+        </form>
+    </body>
+        <script src="./Develop/homepage.js"></script>
+        <!-- <script src="./Develop/fetch.js"></script> -->
+</html>

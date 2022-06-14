@@ -1,0 +1,63 @@
+* {
+    padding: 0;
+    margin: 0;
+    scroll-behavior: smooth;
+}
+
+header {
+    background-image: linear-gradient(rgb(233, 181, 12), rgb(255, 147, 230), rgb(220, 122, 9));
+    justify-content: center;
+
+}
+
+body {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
+    font-family: 'Barlow Condensed', sans-serif;
+}
+
+h1 {
+    text-align: center;
+    font-family: 'Barlow Condensed', sans-serif;
+    padding: 2rem;
+}
+
+.coinInfoCard {
+    /* max-width: 750px; */
+    margin: auto;
+}
+
+.card {
+    width: 300px;
+  height: 300px;
+  transition: width 1s;
+}
+.card:hover {
+    width: 500px;
+}
+
+.card-header {
+    background-image: linear-gradient(rgb(233, 181, 12), rgb(255, 147, 230), rgb(220, 122, 9));
+    justify-content: center;
+    font-size: xx-large;
+}
+
+p {
+    color: black;
+    font-family: 'Barlow Condensed', sans-serif;
+}
+
+#Price {
+    display: flex;
+}
+#Change {
+    display: flex;
+}
+
+.table {
+    font-family: 'Barlow Condensed', sans-serif;
+    margin: auto;
+}
+
