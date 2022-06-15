@@ -6,6 +6,7 @@ Coin4U is a front-end application with live web-APIs designed for users to get a
 
 Group Presentation: https://docs.google.com/presentation/d/1Esmynkus2TEuheM_HYU3SmGKoXxXcIc2/edit?usp=sharing&ouid=102654571422236759853&rtpof=true&sd=true
 
+Deployed URL: https://seheon013.github.io/Coin4U/
 
 GitHub repo: https://github.com/seheon013/Coin4U
 
