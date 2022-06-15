@@ -40,5 +40,6 @@ https://github.com/min-hinthar
 
 <img src="./Develop/Assets/Images/Coin4U_Screenshot_Homepage.jpg">
 <img src="./Develop/Assets/Images/Coin4U_Screenshot_Homepage_Results.jpg">
+<img src="./Develop/Assets/Images/Coin4U_Screenshot_Screenshot_ExChangeRate.jpg">
 
 
