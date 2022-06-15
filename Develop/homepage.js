@@ -159,7 +159,3 @@ var roundup = function (num) {
     //round up to decimal 2 point
     return Math.round(num * 100) / 100
 }
-
-document.querySelector('#scrollToBottom').addEventListener('click', () => {
-    window.scrollTo(0, document.body.scrollHeight);
-});
