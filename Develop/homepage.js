@@ -13,7 +13,7 @@ var searchBtnEl = document.getElementById('but_read')
 // DOM for appending Search Results
 var cryptoResult = document.getElementById('cryptoResult-1');
 
-const coinArray = { 'Bitcoin': 0, 'Ethereum': 1, 'Tether': 2, 'USD Coin': 3, 'BNB': 4, 'Cardano': 5, 'XRP': 6, 'Binance USD': 7, 'Solana': 7, 'Dogecoin': 9, 'Polkadot': 10 }
+const coinArray = { 'Bitcoin': 0, 'Ethereum': 1, 'Tether': 2, 'USD Coin': 3, 'BNB': 4, 'Cardano': 5, 'XRP': 6, 'Binance USD': 7, 'Solana': 8, 'Dogecoin': 9, 'Polkadot': 10, 'Wrapped Bitcoin': 11, "Tron": 12, 'Dai': 13, 'Avalanche':14, 'UNUS SED LEO': 15, "Shiba Inu":16, "Polygon":17, "Cronos":18, "FTX Token":19, "Litecoin":20}
 // addEventListener to search button and submit user input to fetch
 // searchBtnEl.addEventListener('click', searchApi); //Ethereum is an example.
 $(document).ready(function () {
@@ -39,11 +39,13 @@ $(document).ready(function () {
             headers: {
                 'X-CMC_PRO_API_KEY': apiKey1,
             },
+            
         })
             // if fetch success then get response
             .then(function (response) {
                 if (response.ok) {
                     response.json().then(function (data) {
+                        console.log(data)
                     //check if the crypto selected by user is already searched.
                     if (userselectCryptos.includes(cryptoselected) == false ){
                         getParam(data, cryptoselected)
@@ -126,12 +128,6 @@ var getParam = function (data, symbol) {
     window.localStorage.setItem("price", price);
     window.localStorage.setItem("percentChange", percent_change_24h);
 
-    // console.log('Current price: $' + price)
-    // console.log('Current market cap: $' + marketcap)
-    // console.log('1 Hour price change: ' + percent_change_1h + '%')
-    // console.log('24 Hour price change: ' + percent_change_24h + '%')
-    // console.log('7 Day price change: ' + percent_change_7d + '%')
-    // console.log('24 Hour Volume: $' + volume24h)
 
     // create <h#> tags and set attribute text to getParam vars
     var h2tag = $('<h2>').attr('id', 'cryptoName').text(symbol);
